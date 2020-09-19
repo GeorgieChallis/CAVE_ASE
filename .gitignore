@@ -30,3 +30,4 @@ phony.c
 moc/
 moc_*
 ui_*
+Makefile
