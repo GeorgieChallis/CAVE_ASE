@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     // at present mac osx Mountain Lion only supports GL3.2
     // the new mavericks will have GL 4.x so can change
     format.setMajorVersion(4);
-    format.setMinorVersion(1);
+    format.setMinorVersion(5);
   #else
     // with luck we have the latest GL version so set to this
     format.setMajorVersion(4);

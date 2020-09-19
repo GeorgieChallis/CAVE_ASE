@@ -2,7 +2,10 @@
 #include <QGuiApplication>
 
 #include "NGLScene.h"
+#include <ngl/ShaderLib.h>
+#include <ngl/NGLStream.h>
 #include <ngl/NGLInit.h>
+#include <ngl/Util.h>
 #include <ngl/VAOPrimitives.h>
 #include <iostream>
 
@@ -39,8 +42,10 @@ void NGLScene::initializeGL()
   // enable multisampling for smoother drawing
   glEnable(GL_MULTISAMPLE);
 
+  auto shader = ngl::ShaderLib::instance();
+  shader->loadShader("ColourShader", "shaders/VertexShader.glsl",
+                     "shaders/FragmentShader.glsl");
 }
-
 
 
 void NGLScene::paintGL()
@@ -49,6 +54,7 @@ void NGLScene::paintGL()
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glViewport(0,0,m_win.width,m_win.height);
 
+  ngl::VAOPrimitives::instance()->draw(ngl::teapot);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
