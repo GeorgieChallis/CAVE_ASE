@@ -2,7 +2,6 @@
 #include <QGuiApplication>
 
 #include "NGLScene.h"
-#include <ngl/ShaderLib.h>
 #include <ngl/NGLStream.h>
 #include <ngl/NGLInit.h>
 #include <ngl/Util.h>
@@ -33,7 +32,7 @@ void NGLScene::resizeGL(int _w , int _h)
 {
   m_win.width  = static_cast<int>( _w * devicePixelRatio() );
   m_win.height = static_cast<int>( _h * devicePixelRatio() );
-  m_project = ngl::perspective(45.0f, static_cast<float>((_w)/_h), 0.5f, 5.0f);
+  m_project = ngl::perspective(45.0f, static_cast<float>((_w)/_h), 0.5f, 10.0f);
 }
 
 
@@ -52,7 +51,7 @@ void NGLScene::initializeGL()
   auto shader = ngl::ShaderLib::instance();
   shader->loadShader("ColourShader", "shaders/VertexShader.glsl",
                      "shaders/FragmentShader.glsl");
-  ngl::Vec3 eye(2.0f,2.0f,2.0f);
+  ngl::Vec3 eye(0.0f,5.0f,8.0f);
   m_view = ngl::lookAt(eye, {0.0f, 0.0f, 0.0f}, ngl::Vec3::up());
 }
 
@@ -63,19 +62,45 @@ void NGLScene::paintGL()
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glViewport(0,0,m_win.width,m_win.height);
   auto shader = ngl::ShaderLib::instance();
-  shader->use("ColourShader");
-  shader->setUniform("colour", 1.0f, 0.0f, 0.0f);
-  ngl::Transformation tx;
-  tx.setScale(0.5f, 0.6f, 0.5f);
-  loadMatrixToShader(tx);
-  ngl::VAOPrimitives::instance()->draw(ngl::teapot);
 
-  shader->setUniform("colour", 0.0f, 0.2f, 1.0f);
-  tx.reset();
-  tx.setScale(0.1f, 0.1f, 0.1f);
-  tx.setPosition(-1.0f, 0.0f, 0.0f);
-  loadMatrixToShader(tx);
-  ngl::VAOPrimitives::instance()->draw("bunny");
+  PlaceObjects(12, shader);
+}
+
+void NGLScene::PlaceObjects(int n, ngl::ShaderLib* shader)
+{
+    ngl::Transformation tx;
+
+    ngl::Vec3 colours[8] = {
+        {0.0f, 0.0f, 0.0f},
+        {1.0f, 0.0f, 0.0f},
+        {0.0f, 1.0f, 0.0f},
+        {0.0f, 0.0f, 1.0f},
+        {1.0f, 1.0f, 0.0f},
+        {1.0f, 0.0f, 1.0f},
+        {0.0f, 1.0f, 1.0f},
+        {1.0f, 1.0f, 1.0f}
+    };
+
+    float xpos = -((float)n/2);
+
+    shader->use("ColourShader");
+
+    tx.setScale(0.5f, 0.5f, 0.5f);
+
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << i%9 << "\n";
+        shader->setUniform("colour", colours[i%9]);
+
+        tx.reset();
+        tx.setPosition(xpos, 0.0f, 0.0f);
+
+
+        loadMatrixToShader(tx);
+        ngl::VAOPrimitives::instance()->draw(ngl::teapot);
+
+        xpos+=2.0f;
+    }
 }
 
 

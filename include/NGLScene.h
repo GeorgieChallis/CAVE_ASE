@@ -1,6 +1,7 @@
 #ifndef NGLSCENE_H_
 #define NGLSCENE_H_
-#include <ngl/Transformation.h>>
+#include <ngl/ShaderLib.h>
+#include <ngl/Transformation.h>
 #include <ngl/Vec3.h>
 #include <ngl/Mat4.h>
 #include "WindowParams.h"
@@ -78,6 +79,8 @@ private:
     void wheelEvent( QWheelEvent *_event) override;
 
     void loadMatrixToShader(ngl::Transformation &_tx);
+
+    void PlaceObjects(int n, ngl::ShaderLib* shader);
 
     //Projection matrix
     ngl::Mat4 m_project;
