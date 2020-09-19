@@ -21,12 +21,19 @@ NGLScene::~NGLScene()
   std::cout<<"Shutting down NGL, removing VAO's and Shaders\n";
 }
 
+void NGLScene::loadMatrixToShader(ngl::Transformation& _tx)
+{
+    auto shader = ngl::ShaderLib::instance();
+    shader->setUniform("MVP", m_project*m_view*_tx.getMatrix());
 
+
+}
 
 void NGLScene::resizeGL(int _w , int _h)
 {
   m_win.width  = static_cast<int>( _w * devicePixelRatio() );
   m_win.height = static_cast<int>( _h * devicePixelRatio() );
+  m_project = ngl::perspective(45.0f, static_cast<float>((_w)/_h), 0.5f, 5.0f);
 }
 
 
@@ -45,6 +52,8 @@ void NGLScene::initializeGL()
   auto shader = ngl::ShaderLib::instance();
   shader->loadShader("ColourShader", "shaders/VertexShader.glsl",
                      "shaders/FragmentShader.glsl");
+  ngl::Vec3 eye(2.0f,2.0f,2.0f);
+  m_view = ngl::lookAt(eye, {0.0f, 0.0f, 0.0f}, ngl::Vec3::up());
 }
 
 
@@ -53,9 +62,22 @@ void NGLScene::paintGL()
   // clear the screen and depth buffer
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glViewport(0,0,m_win.width,m_win.height);
-
+  auto shader = ngl::ShaderLib::instance();
+  shader->use("ColourShader");
+  shader->setUniform("colour", 1.0f, 0.0f, 0.0f);
+  ngl::Transformation tx;
+  tx.setScale(0.5f, 0.6f, 0.5f);
+  loadMatrixToShader(tx);
   ngl::VAOPrimitives::instance()->draw(ngl::teapot);
+
+  shader->setUniform("colour", 0.0f, 0.2f, 1.0f);
+  tx.reset();
+  tx.setScale(0.1f, 0.1f, 0.1f);
+  tx.setPosition(-1.0f, 0.0f, 0.0f);
+  loadMatrixToShader(tx);
+  ngl::VAOPrimitives::instance()->draw("bunny");
 }
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -73,6 +95,9 @@ void NGLScene::keyPressEvent(QKeyEvent *_event)
       m_modelPos.set(ngl::Vec3::zero());
 
   break;
+
+  case Qt::Key_W : glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); break;
+  case Qt::Key_S : glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); break;
   default : break;
   }
   // finally update the GLWindow and re-draw

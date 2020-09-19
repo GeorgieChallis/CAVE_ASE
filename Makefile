@@ -660,7 +660,8 @@ obj/main.o: src/main.cpp /usr/local/include/QtGui/QGuiApplication \
 		/usr/local/include/QtCore/qsize.h \
 		/usr/local/include/QtCore/qmargins.h \
 		include/NGLScene.h \
-		/Users/georgie/NGL/include/ngl/Vec3.h \
+		/Users/georgie/NGL/include/ngl/Transformation.h \
+		/Users/georgie/NGL/include/ngl/Mat4.h \
 		/Users/georgie/NGL/include/ngl/Types.h \
 		/Users/georgie/NGL/gl3w/gl3w.h \
 		/Users/georgie/NGL/gl3w/glcorearb.h \
@@ -668,17 +669,40 @@ obj/main.o: src/main.cpp /usr/local/include/QtGui/QGuiApplication \
 		/Users/georgie/NGL/include/ngl/fmt/format.cc \
 		/Users/georgie/NGL/include/ngl/NGLMessage.h \
 		/Users/georgie/NGL/include/ngl/MessageQueue/AbstractMessageConsumer.h \
-		/usr/local/include/glm/vec3.hpp \
-		/usr/local/include/glm/ext/vector_bool3.hpp \
-		/usr/local/include/glm/detail/type_vec3.hpp \
+		/usr/local/include/glm/mat4x4.hpp \
+		/usr/local/include/glm/ext/matrix_double4x4.hpp \
+		/usr/local/include/glm/detail/type_mat4x4.hpp \
+		/usr/local/include/glm/detail/type_vec4.hpp \
 		/usr/local/include/glm/detail/qualifier.hpp \
 		/usr/local/include/glm/detail/setup.hpp \
 		/usr/local/include/glm/simd/platform.h \
 		/usr/local/include/glm/simd/neon.h \
 		/usr/local/include/glm/detail/_swizzle.hpp \
 		/usr/local/include/glm/detail/_swizzle_func.hpp \
-		/usr/local/include/glm/detail/type_vec3.inl \
+		/usr/local/include/glm/detail/type_vec4.inl \
 		/usr/local/include/glm/detail/compute_vector_relational.hpp \
+		/usr/local/include/glm/detail/type_vec4_simd.inl \
+		/usr/local/include/glm/detail/type_mat4x4.inl \
+		/usr/local/include/glm/matrix.hpp \
+		/usr/local/include/glm/vec2.hpp \
+		/usr/local/include/glm/ext/vector_bool2.hpp \
+		/usr/local/include/glm/detail/type_vec2.hpp \
+		/usr/local/include/glm/detail/type_vec2.inl \
+		/usr/local/include/glm/ext/vector_bool2_precision.hpp \
+		/usr/local/include/glm/ext/vector_float2.hpp \
+		/usr/local/include/glm/ext/vector_float2_precision.hpp \
+		/usr/local/include/glm/ext/vector_double2.hpp \
+		/usr/local/include/glm/ext/vector_double2_precision.hpp \
+		/usr/local/include/glm/ext/vector_int2.hpp \
+		/usr/local/include/glm/ext/vector_int2_sized.hpp \
+		/usr/local/include/glm/ext/scalar_int_sized.hpp \
+		/usr/local/include/glm/ext/vector_uint2.hpp \
+		/usr/local/include/glm/ext/vector_uint2_sized.hpp \
+		/usr/local/include/glm/ext/scalar_uint_sized.hpp \
+		/usr/local/include/glm/vec3.hpp \
+		/usr/local/include/glm/ext/vector_bool3.hpp \
+		/usr/local/include/glm/detail/type_vec3.hpp \
+		/usr/local/include/glm/detail/type_vec3.inl \
 		/usr/local/include/glm/ext/vector_bool3_precision.hpp \
 		/usr/local/include/glm/ext/vector_float3.hpp \
 		/usr/local/include/glm/ext/vector_float3_precision.hpp \
@@ -686,10 +710,106 @@ obj/main.o: src/main.cpp /usr/local/include/QtGui/QGuiApplication \
 		/usr/local/include/glm/ext/vector_double3_precision.hpp \
 		/usr/local/include/glm/ext/vector_int3.hpp \
 		/usr/local/include/glm/ext/vector_int3_sized.hpp \
-		/usr/local/include/glm/ext/scalar_int_sized.hpp \
 		/usr/local/include/glm/ext/vector_uint3.hpp \
 		/usr/local/include/glm/ext/vector_uint3_sized.hpp \
-		/usr/local/include/glm/ext/scalar_uint_sized.hpp \
+		/usr/local/include/glm/vec4.hpp \
+		/usr/local/include/glm/ext/vector_bool4.hpp \
+		/usr/local/include/glm/ext/vector_bool4_precision.hpp \
+		/usr/local/include/glm/ext/vector_float4.hpp \
+		/usr/local/include/glm/ext/vector_float4_precision.hpp \
+		/usr/local/include/glm/ext/vector_double4.hpp \
+		/usr/local/include/glm/ext/vector_double4_precision.hpp \
+		/usr/local/include/glm/ext/vector_int4.hpp \
+		/usr/local/include/glm/ext/vector_int4_sized.hpp \
+		/usr/local/include/glm/ext/vector_uint4.hpp \
+		/usr/local/include/glm/ext/vector_uint4_sized.hpp \
+		/usr/local/include/glm/mat2x2.hpp \
+		/usr/local/include/glm/ext/matrix_double2x2.hpp \
+		/usr/local/include/glm/detail/type_mat2x2.hpp \
+		/usr/local/include/glm/detail/type_mat2x2.inl \
+		/usr/local/include/glm/ext/matrix_double2x2_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float2x2.hpp \
+		/usr/local/include/glm/ext/matrix_float2x2_precision.hpp \
+		/usr/local/include/glm/mat2x3.hpp \
+		/usr/local/include/glm/ext/matrix_double2x3.hpp \
+		/usr/local/include/glm/detail/type_mat2x3.hpp \
+		/usr/local/include/glm/detail/type_mat2x3.inl \
+		/usr/local/include/glm/ext/matrix_double2x3_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float2x3.hpp \
+		/usr/local/include/glm/ext/matrix_float2x3_precision.hpp \
+		/usr/local/include/glm/mat2x4.hpp \
+		/usr/local/include/glm/ext/matrix_double2x4.hpp \
+		/usr/local/include/glm/detail/type_mat2x4.hpp \
+		/usr/local/include/glm/detail/type_mat2x4.inl \
+		/usr/local/include/glm/ext/matrix_double2x4_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float2x4.hpp \
+		/usr/local/include/glm/ext/matrix_float2x4_precision.hpp \
+		/usr/local/include/glm/mat3x2.hpp \
+		/usr/local/include/glm/ext/matrix_double3x2.hpp \
+		/usr/local/include/glm/detail/type_mat3x2.hpp \
+		/usr/local/include/glm/detail/type_mat3x2.inl \
+		/usr/local/include/glm/ext/matrix_double3x2_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float3x2.hpp \
+		/usr/local/include/glm/ext/matrix_float3x2_precision.hpp \
+		/usr/local/include/glm/mat3x3.hpp \
+		/usr/local/include/glm/ext/matrix_double3x3.hpp \
+		/usr/local/include/glm/detail/type_mat3x3.hpp \
+		/usr/local/include/glm/detail/type_mat3x3.inl \
+		/usr/local/include/glm/ext/matrix_double3x3_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float3x3.hpp \
+		/usr/local/include/glm/ext/matrix_float3x3_precision.hpp \
+		/usr/local/include/glm/mat3x4.hpp \
+		/usr/local/include/glm/ext/matrix_double3x4.hpp \
+		/usr/local/include/glm/detail/type_mat3x4.hpp \
+		/usr/local/include/glm/detail/type_mat3x4.inl \
+		/usr/local/include/glm/ext/matrix_double3x4_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float3x4.hpp \
+		/usr/local/include/glm/ext/matrix_float3x4_precision.hpp \
+		/usr/local/include/glm/mat4x2.hpp \
+		/usr/local/include/glm/ext/matrix_double4x2.hpp \
+		/usr/local/include/glm/detail/type_mat4x2.hpp \
+		/usr/local/include/glm/detail/type_mat4x2.inl \
+		/usr/local/include/glm/ext/matrix_double4x2_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float4x2.hpp \
+		/usr/local/include/glm/ext/matrix_float4x2_precision.hpp \
+		/usr/local/include/glm/mat4x3.hpp \
+		/usr/local/include/glm/ext/matrix_double4x3.hpp \
+		/usr/local/include/glm/detail/type_mat4x3.hpp \
+		/usr/local/include/glm/detail/type_mat4x3.inl \
+		/usr/local/include/glm/ext/matrix_double4x3_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float4x3.hpp \
+		/usr/local/include/glm/ext/matrix_float4x3_precision.hpp \
+		/usr/local/include/glm/detail/func_matrix.inl \
+		/usr/local/include/glm/geometric.hpp \
+		/usr/local/include/glm/detail/func_geometric.inl \
+		/usr/local/include/glm/exponential.hpp \
+		/usr/local/include/glm/detail/type_vec1.hpp \
+		/usr/local/include/glm/detail/type_vec1.inl \
+		/usr/local/include/glm/detail/func_exponential.inl \
+		/usr/local/include/glm/vector_relational.hpp \
+		/usr/local/include/glm/detail/func_vector_relational.inl \
+		/usr/local/include/glm/detail/func_vector_relational_simd.inl \
+		/usr/local/include/glm/detail/_vectorize.hpp \
+		/usr/local/include/glm/detail/func_exponential_simd.inl \
+		/usr/local/include/glm/simd/exponential.h \
+		/usr/local/include/glm/common.hpp \
+		/usr/local/include/glm/detail/_fixes.hpp \
+		/usr/local/include/glm/detail/func_common.inl \
+		/usr/local/include/glm/detail/compute_common.hpp \
+		/usr/local/include/glm/detail/func_common_simd.inl \
+		/usr/local/include/glm/simd/common.h \
+		/usr/local/include/glm/detail/func_geometric_simd.inl \
+		/usr/local/include/glm/simd/geometric.h \
+		/usr/local/include/glm/detail/func_matrix_simd.inl \
+		/usr/local/include/glm/simd/matrix.h \
+		/usr/local/include/glm/detail/type_mat4x4_simd.inl \
+		/usr/local/include/glm/ext/matrix_double4x4_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float4x4.hpp \
+		/usr/local/include/glm/ext/matrix_float4x4_precision.hpp \
+		/Users/georgie/NGL/include/ngl/NGLassert.h \
+		/Users/georgie/NGL/include/ngl/Vec4.h \
+		/Users/georgie/NGL/include/ngl/Vec2.h \
+		/Users/georgie/NGL/include/ngl/Vec3.h \
 		include/WindowParams.h \
 		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/QOpenGLWindow \
 		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/qopenglwindow.h \
@@ -820,7 +940,8 @@ obj/NGLScene.o: src/NGLScene.cpp /Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.fra
 		/usr/local/include/QtCore/qeventloop.h \
 		/usr/local/include/QtGui/qinputmethod.h \
 		include/NGLScene.h \
-		/Users/georgie/NGL/include/ngl/Vec3.h \
+		/Users/georgie/NGL/include/ngl/Transformation.h \
+		/Users/georgie/NGL/include/ngl/Mat4.h \
 		/Users/georgie/NGL/include/ngl/Types.h \
 		/Users/georgie/NGL/gl3w/gl3w.h \
 		/Users/georgie/NGL/gl3w/glcorearb.h \
@@ -828,71 +949,21 @@ obj/NGLScene.o: src/NGLScene.cpp /Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.fra
 		/Users/georgie/NGL/include/ngl/fmt/format.cc \
 		/Users/georgie/NGL/include/ngl/NGLMessage.h \
 		/Users/georgie/NGL/include/ngl/MessageQueue/AbstractMessageConsumer.h \
-		/usr/local/include/glm/vec3.hpp \
-		/usr/local/include/glm/ext/vector_bool3.hpp \
-		/usr/local/include/glm/detail/type_vec3.hpp \
+		/usr/local/include/glm/mat4x4.hpp \
+		/usr/local/include/glm/ext/matrix_double4x4.hpp \
+		/usr/local/include/glm/detail/type_mat4x4.hpp \
+		/usr/local/include/glm/detail/type_vec4.hpp \
 		/usr/local/include/glm/detail/qualifier.hpp \
 		/usr/local/include/glm/detail/setup.hpp \
 		/usr/local/include/glm/simd/platform.h \
 		/usr/local/include/glm/simd/neon.h \
 		/usr/local/include/glm/detail/_swizzle.hpp \
 		/usr/local/include/glm/detail/_swizzle_func.hpp \
-		/usr/local/include/glm/detail/type_vec3.inl \
+		/usr/local/include/glm/detail/type_vec4.inl \
 		/usr/local/include/glm/detail/compute_vector_relational.hpp \
-		/usr/local/include/glm/ext/vector_bool3_precision.hpp \
-		/usr/local/include/glm/ext/vector_float3.hpp \
-		/usr/local/include/glm/ext/vector_float3_precision.hpp \
-		/usr/local/include/glm/ext/vector_double3.hpp \
-		/usr/local/include/glm/ext/vector_double3_precision.hpp \
-		/usr/local/include/glm/ext/vector_int3.hpp \
-		/usr/local/include/glm/ext/vector_int3_sized.hpp \
-		/usr/local/include/glm/ext/scalar_int_sized.hpp \
-		/usr/local/include/glm/ext/vector_uint3.hpp \
-		/usr/local/include/glm/ext/vector_uint3_sized.hpp \
-		/usr/local/include/glm/ext/scalar_uint_sized.hpp \
-		include/WindowParams.h \
-		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/QOpenGLWindow \
-		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/qopenglwindow.h \
-		/usr/local/include/QtGui/QPaintDeviceWindow \
-		/usr/local/include/QtGui/qpaintdevicewindow.h \
-		/usr/local/include/QtGui/QWindow \
-		/usr/local/include/QtGui/qwindow.h \
-		/usr/local/include/QtCore/QObject \
-		/usr/local/include/QtCore/QEvent \
-		/usr/local/include/QtCore/QMargins \
-		/usr/local/include/QtCore/QRect \
-		/usr/local/include/QtGui/qsurface.h \
-		/usr/local/include/QtGui/qsurfaceformat.h \
-		/usr/local/include/QtGui/qicon.h \
-		/usr/local/include/QtGui/qpixmap.h \
-		/usr/local/include/QtGui/qpaintdevice.h \
-		/usr/local/include/QtGui/qcolor.h \
-		/usr/local/include/QtGui/qrgb.h \
-		/usr/local/include/QtGui/qrgba64.h \
-		/usr/local/include/QtGui/qimage.h \
-		/usr/local/include/QtGui/qpixelformat.h \
-		/usr/local/include/QtGui/qtransform.h \
-		/usr/local/include/QtGui/qmatrix.h \
-		/usr/local/include/QtGui/qpolygon.h \
-		/usr/local/include/QtCore/qline.h \
-		/usr/local/include/QtGui/qcursor.h \
-		/usr/local/include/QtGui/QPaintDevice \
-		/usr/local/include/QtGui/QOpenGLContext \
-		/usr/local/include/QtGui/qopenglcontext.h \
-		/usr/local/include/QtCore/QScopedPointer \
-		/usr/local/include/QtGui/QSurfaceFormat \
-		/usr/local/include/QtGui/qopengl.h \
-		/usr/local/include/QtCore/qt_windows.h \
-		/usr/local/include/QtGui/qopengles2ext.h \
-		/usr/local/include/QtGui/qopenglext.h \
-		/usr/local/include/QtGui/qopenglversionfunctions.h \
-		/usr/local/include/QtGui/QImage \
-		/Users/georgie/NGL/include/ngl/ShaderLib.h \
-		/Users/georgie/NGL/include/ngl/Shader.h \
-		/Users/georgie/NGL/include/ngl/ShaderProgram.h \
-		/Users/georgie/NGL/include/ngl/Util.h \
-		/Users/georgie/NGL/include/ngl/Vec4.h \
-		/Users/georgie/NGL/include/ngl/Vec2.h \
+		/usr/local/include/glm/detail/type_vec4_simd.inl \
+		/usr/local/include/glm/detail/type_mat4x4.inl \
+		/usr/local/include/glm/matrix.hpp \
 		/usr/local/include/glm/vec2.hpp \
 		/usr/local/include/glm/ext/vector_bool2.hpp \
 		/usr/local/include/glm/detail/type_vec2.hpp \
@@ -904,13 +975,25 @@ obj/NGLScene.o: src/NGLScene.cpp /Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.fra
 		/usr/local/include/glm/ext/vector_double2_precision.hpp \
 		/usr/local/include/glm/ext/vector_int2.hpp \
 		/usr/local/include/glm/ext/vector_int2_sized.hpp \
+		/usr/local/include/glm/ext/scalar_int_sized.hpp \
 		/usr/local/include/glm/ext/vector_uint2.hpp \
 		/usr/local/include/glm/ext/vector_uint2_sized.hpp \
+		/usr/local/include/glm/ext/scalar_uint_sized.hpp \
+		/usr/local/include/glm/vec3.hpp \
+		/usr/local/include/glm/ext/vector_bool3.hpp \
+		/usr/local/include/glm/detail/type_vec3.hpp \
+		/usr/local/include/glm/detail/type_vec3.inl \
+		/usr/local/include/glm/ext/vector_bool3_precision.hpp \
+		/usr/local/include/glm/ext/vector_float3.hpp \
+		/usr/local/include/glm/ext/vector_float3_precision.hpp \
+		/usr/local/include/glm/ext/vector_double3.hpp \
+		/usr/local/include/glm/ext/vector_double3_precision.hpp \
+		/usr/local/include/glm/ext/vector_int3.hpp \
+		/usr/local/include/glm/ext/vector_int3_sized.hpp \
+		/usr/local/include/glm/ext/vector_uint3.hpp \
+		/usr/local/include/glm/ext/vector_uint3_sized.hpp \
 		/usr/local/include/glm/vec4.hpp \
 		/usr/local/include/glm/ext/vector_bool4.hpp \
-		/usr/local/include/glm/detail/type_vec4.hpp \
-		/usr/local/include/glm/detail/type_vec4.inl \
-		/usr/local/include/glm/detail/type_vec4_simd.inl \
 		/usr/local/include/glm/ext/vector_bool4_precision.hpp \
 		/usr/local/include/glm/ext/vector_float4.hpp \
 		/usr/local/include/glm/ext/vector_float4_precision.hpp \
@@ -920,12 +1003,13 @@ obj/NGLScene.o: src/NGLScene.cpp /Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.fra
 		/usr/local/include/glm/ext/vector_int4_sized.hpp \
 		/usr/local/include/glm/ext/vector_uint4.hpp \
 		/usr/local/include/glm/ext/vector_uint4_sized.hpp \
-		/Users/georgie/NGL/include/ngl/Mat2.h \
 		/usr/local/include/glm/mat2x2.hpp \
 		/usr/local/include/glm/ext/matrix_double2x2.hpp \
 		/usr/local/include/glm/detail/type_mat2x2.hpp \
 		/usr/local/include/glm/detail/type_mat2x2.inl \
-		/usr/local/include/glm/matrix.hpp \
+		/usr/local/include/glm/ext/matrix_double2x2_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float2x2.hpp \
+		/usr/local/include/glm/ext/matrix_float2x2_precision.hpp \
 		/usr/local/include/glm/mat2x3.hpp \
 		/usr/local/include/glm/ext/matrix_double2x3.hpp \
 		/usr/local/include/glm/detail/type_mat2x3.hpp \
@@ -975,14 +1059,6 @@ obj/NGLScene.o: src/NGLScene.cpp /Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.fra
 		/usr/local/include/glm/ext/matrix_double4x3_precision.hpp \
 		/usr/local/include/glm/ext/matrix_float4x3.hpp \
 		/usr/local/include/glm/ext/matrix_float4x3_precision.hpp \
-		/usr/local/include/glm/mat4x4.hpp \
-		/usr/local/include/glm/ext/matrix_double4x4.hpp \
-		/usr/local/include/glm/detail/type_mat4x4.hpp \
-		/usr/local/include/glm/detail/type_mat4x4.inl \
-		/usr/local/include/glm/detail/type_mat4x4_simd.inl \
-		/usr/local/include/glm/ext/matrix_double4x4_precision.hpp \
-		/usr/local/include/glm/ext/matrix_float4x4.hpp \
-		/usr/local/include/glm/ext/matrix_float4x4_precision.hpp \
 		/usr/local/include/glm/detail/func_matrix.inl \
 		/usr/local/include/glm/geometric.hpp \
 		/usr/local/include/glm/detail/func_geometric.inl \
@@ -1006,11 +1082,57 @@ obj/NGLScene.o: src/NGLScene.cpp /Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.fra
 		/usr/local/include/glm/simd/geometric.h \
 		/usr/local/include/glm/detail/func_matrix_simd.inl \
 		/usr/local/include/glm/simd/matrix.h \
-		/usr/local/include/glm/ext/matrix_double2x2_precision.hpp \
-		/usr/local/include/glm/ext/matrix_float2x2.hpp \
-		/usr/local/include/glm/ext/matrix_float2x2_precision.hpp \
+		/usr/local/include/glm/detail/type_mat4x4_simd.inl \
+		/usr/local/include/glm/ext/matrix_double4x4_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float4x4.hpp \
+		/usr/local/include/glm/ext/matrix_float4x4_precision.hpp \
+		/Users/georgie/NGL/include/ngl/NGLassert.h \
+		/Users/georgie/NGL/include/ngl/Vec4.h \
+		/Users/georgie/NGL/include/ngl/Vec2.h \
+		/Users/georgie/NGL/include/ngl/Vec3.h \
+		include/WindowParams.h \
+		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/QOpenGLWindow \
+		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/qopenglwindow.h \
+		/usr/local/include/QtGui/QPaintDeviceWindow \
+		/usr/local/include/QtGui/qpaintdevicewindow.h \
+		/usr/local/include/QtGui/QWindow \
+		/usr/local/include/QtGui/qwindow.h \
+		/usr/local/include/QtCore/QObject \
+		/usr/local/include/QtCore/QEvent \
+		/usr/local/include/QtCore/QMargins \
+		/usr/local/include/QtCore/QRect \
+		/usr/local/include/QtGui/qsurface.h \
+		/usr/local/include/QtGui/qsurfaceformat.h \
+		/usr/local/include/QtGui/qicon.h \
+		/usr/local/include/QtGui/qpixmap.h \
+		/usr/local/include/QtGui/qpaintdevice.h \
+		/usr/local/include/QtGui/qcolor.h \
+		/usr/local/include/QtGui/qrgb.h \
+		/usr/local/include/QtGui/qrgba64.h \
+		/usr/local/include/QtGui/qimage.h \
+		/usr/local/include/QtGui/qpixelformat.h \
+		/usr/local/include/QtGui/qtransform.h \
+		/usr/local/include/QtGui/qmatrix.h \
+		/usr/local/include/QtGui/qpolygon.h \
+		/usr/local/include/QtCore/qline.h \
+		/usr/local/include/QtGui/qcursor.h \
+		/usr/local/include/QtGui/QPaintDevice \
+		/usr/local/include/QtGui/QOpenGLContext \
+		/usr/local/include/QtGui/qopenglcontext.h \
+		/usr/local/include/QtCore/QScopedPointer \
+		/usr/local/include/QtGui/QSurfaceFormat \
+		/usr/local/include/QtGui/qopengl.h \
+		/usr/local/include/QtCore/qt_windows.h \
+		/usr/local/include/QtGui/qopengles2ext.h \
+		/usr/local/include/QtGui/qopenglext.h \
+		/usr/local/include/QtGui/qopenglversionfunctions.h \
+		/usr/local/include/QtGui/QImage \
+		/Users/georgie/NGL/include/ngl/ShaderLib.h \
+		/Users/georgie/NGL/include/ngl/Shader.h \
+		/Users/georgie/NGL/include/ngl/ShaderProgram.h \
+		/Users/georgie/NGL/include/ngl/Util.h \
+		/Users/georgie/NGL/include/ngl/Mat2.h \
 		/Users/georgie/NGL/include/ngl/Mat3.h \
-		/Users/georgie/NGL/include/ngl/Mat4.h \
 		/Users/georgie/NGL/include/ngl/Singleton.h \
 		/usr/local/include/glm/glm.hpp \
 		/usr/local/include/glm/fwd.hpp \
@@ -1033,7 +1155,8 @@ obj/NGLScene.o: src/NGLScene.cpp /Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.fra
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/NGLScene.o src/NGLScene.cpp
 
 obj/NGLSceneMouseControls.o: src/NGLSceneMouseControls.cpp include/NGLScene.h \
-		/Users/georgie/NGL/include/ngl/Vec3.h \
+		/Users/georgie/NGL/include/ngl/Transformation.h \
+		/Users/georgie/NGL/include/ngl/Mat4.h \
 		/Users/georgie/NGL/include/ngl/Types.h \
 		/Users/georgie/NGL/gl3w/gl3w.h \
 		/Users/georgie/NGL/gl3w/glcorearb.h \
@@ -1041,17 +1164,40 @@ obj/NGLSceneMouseControls.o: src/NGLSceneMouseControls.cpp include/NGLScene.h \
 		/Users/georgie/NGL/include/ngl/fmt/format.cc \
 		/Users/georgie/NGL/include/ngl/NGLMessage.h \
 		/Users/georgie/NGL/include/ngl/MessageQueue/AbstractMessageConsumer.h \
-		/usr/local/include/glm/vec3.hpp \
-		/usr/local/include/glm/ext/vector_bool3.hpp \
-		/usr/local/include/glm/detail/type_vec3.hpp \
+		/usr/local/include/glm/mat4x4.hpp \
+		/usr/local/include/glm/ext/matrix_double4x4.hpp \
+		/usr/local/include/glm/detail/type_mat4x4.hpp \
+		/usr/local/include/glm/detail/type_vec4.hpp \
 		/usr/local/include/glm/detail/qualifier.hpp \
 		/usr/local/include/glm/detail/setup.hpp \
 		/usr/local/include/glm/simd/platform.h \
 		/usr/local/include/glm/simd/neon.h \
 		/usr/local/include/glm/detail/_swizzle.hpp \
 		/usr/local/include/glm/detail/_swizzle_func.hpp \
-		/usr/local/include/glm/detail/type_vec3.inl \
+		/usr/local/include/glm/detail/type_vec4.inl \
 		/usr/local/include/glm/detail/compute_vector_relational.hpp \
+		/usr/local/include/glm/detail/type_vec4_simd.inl \
+		/usr/local/include/glm/detail/type_mat4x4.inl \
+		/usr/local/include/glm/matrix.hpp \
+		/usr/local/include/glm/vec2.hpp \
+		/usr/local/include/glm/ext/vector_bool2.hpp \
+		/usr/local/include/glm/detail/type_vec2.hpp \
+		/usr/local/include/glm/detail/type_vec2.inl \
+		/usr/local/include/glm/ext/vector_bool2_precision.hpp \
+		/usr/local/include/glm/ext/vector_float2.hpp \
+		/usr/local/include/glm/ext/vector_float2_precision.hpp \
+		/usr/local/include/glm/ext/vector_double2.hpp \
+		/usr/local/include/glm/ext/vector_double2_precision.hpp \
+		/usr/local/include/glm/ext/vector_int2.hpp \
+		/usr/local/include/glm/ext/vector_int2_sized.hpp \
+		/usr/local/include/glm/ext/scalar_int_sized.hpp \
+		/usr/local/include/glm/ext/vector_uint2.hpp \
+		/usr/local/include/glm/ext/vector_uint2_sized.hpp \
+		/usr/local/include/glm/ext/scalar_uint_sized.hpp \
+		/usr/local/include/glm/vec3.hpp \
+		/usr/local/include/glm/ext/vector_bool3.hpp \
+		/usr/local/include/glm/detail/type_vec3.hpp \
+		/usr/local/include/glm/detail/type_vec3.inl \
 		/usr/local/include/glm/ext/vector_bool3_precision.hpp \
 		/usr/local/include/glm/ext/vector_float3.hpp \
 		/usr/local/include/glm/ext/vector_float3_precision.hpp \
@@ -1059,10 +1205,106 @@ obj/NGLSceneMouseControls.o: src/NGLSceneMouseControls.cpp include/NGLScene.h \
 		/usr/local/include/glm/ext/vector_double3_precision.hpp \
 		/usr/local/include/glm/ext/vector_int3.hpp \
 		/usr/local/include/glm/ext/vector_int3_sized.hpp \
-		/usr/local/include/glm/ext/scalar_int_sized.hpp \
 		/usr/local/include/glm/ext/vector_uint3.hpp \
 		/usr/local/include/glm/ext/vector_uint3_sized.hpp \
-		/usr/local/include/glm/ext/scalar_uint_sized.hpp \
+		/usr/local/include/glm/vec4.hpp \
+		/usr/local/include/glm/ext/vector_bool4.hpp \
+		/usr/local/include/glm/ext/vector_bool4_precision.hpp \
+		/usr/local/include/glm/ext/vector_float4.hpp \
+		/usr/local/include/glm/ext/vector_float4_precision.hpp \
+		/usr/local/include/glm/ext/vector_double4.hpp \
+		/usr/local/include/glm/ext/vector_double4_precision.hpp \
+		/usr/local/include/glm/ext/vector_int4.hpp \
+		/usr/local/include/glm/ext/vector_int4_sized.hpp \
+		/usr/local/include/glm/ext/vector_uint4.hpp \
+		/usr/local/include/glm/ext/vector_uint4_sized.hpp \
+		/usr/local/include/glm/mat2x2.hpp \
+		/usr/local/include/glm/ext/matrix_double2x2.hpp \
+		/usr/local/include/glm/detail/type_mat2x2.hpp \
+		/usr/local/include/glm/detail/type_mat2x2.inl \
+		/usr/local/include/glm/ext/matrix_double2x2_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float2x2.hpp \
+		/usr/local/include/glm/ext/matrix_float2x2_precision.hpp \
+		/usr/local/include/glm/mat2x3.hpp \
+		/usr/local/include/glm/ext/matrix_double2x3.hpp \
+		/usr/local/include/glm/detail/type_mat2x3.hpp \
+		/usr/local/include/glm/detail/type_mat2x3.inl \
+		/usr/local/include/glm/ext/matrix_double2x3_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float2x3.hpp \
+		/usr/local/include/glm/ext/matrix_float2x3_precision.hpp \
+		/usr/local/include/glm/mat2x4.hpp \
+		/usr/local/include/glm/ext/matrix_double2x4.hpp \
+		/usr/local/include/glm/detail/type_mat2x4.hpp \
+		/usr/local/include/glm/detail/type_mat2x4.inl \
+		/usr/local/include/glm/ext/matrix_double2x4_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float2x4.hpp \
+		/usr/local/include/glm/ext/matrix_float2x4_precision.hpp \
+		/usr/local/include/glm/mat3x2.hpp \
+		/usr/local/include/glm/ext/matrix_double3x2.hpp \
+		/usr/local/include/glm/detail/type_mat3x2.hpp \
+		/usr/local/include/glm/detail/type_mat3x2.inl \
+		/usr/local/include/glm/ext/matrix_double3x2_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float3x2.hpp \
+		/usr/local/include/glm/ext/matrix_float3x2_precision.hpp \
+		/usr/local/include/glm/mat3x3.hpp \
+		/usr/local/include/glm/ext/matrix_double3x3.hpp \
+		/usr/local/include/glm/detail/type_mat3x3.hpp \
+		/usr/local/include/glm/detail/type_mat3x3.inl \
+		/usr/local/include/glm/ext/matrix_double3x3_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float3x3.hpp \
+		/usr/local/include/glm/ext/matrix_float3x3_precision.hpp \
+		/usr/local/include/glm/mat3x4.hpp \
+		/usr/local/include/glm/ext/matrix_double3x4.hpp \
+		/usr/local/include/glm/detail/type_mat3x4.hpp \
+		/usr/local/include/glm/detail/type_mat3x4.inl \
+		/usr/local/include/glm/ext/matrix_double3x4_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float3x4.hpp \
+		/usr/local/include/glm/ext/matrix_float3x4_precision.hpp \
+		/usr/local/include/glm/mat4x2.hpp \
+		/usr/local/include/glm/ext/matrix_double4x2.hpp \
+		/usr/local/include/glm/detail/type_mat4x2.hpp \
+		/usr/local/include/glm/detail/type_mat4x2.inl \
+		/usr/local/include/glm/ext/matrix_double4x2_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float4x2.hpp \
+		/usr/local/include/glm/ext/matrix_float4x2_precision.hpp \
+		/usr/local/include/glm/mat4x3.hpp \
+		/usr/local/include/glm/ext/matrix_double4x3.hpp \
+		/usr/local/include/glm/detail/type_mat4x3.hpp \
+		/usr/local/include/glm/detail/type_mat4x3.inl \
+		/usr/local/include/glm/ext/matrix_double4x3_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float4x3.hpp \
+		/usr/local/include/glm/ext/matrix_float4x3_precision.hpp \
+		/usr/local/include/glm/detail/func_matrix.inl \
+		/usr/local/include/glm/geometric.hpp \
+		/usr/local/include/glm/detail/func_geometric.inl \
+		/usr/local/include/glm/exponential.hpp \
+		/usr/local/include/glm/detail/type_vec1.hpp \
+		/usr/local/include/glm/detail/type_vec1.inl \
+		/usr/local/include/glm/detail/func_exponential.inl \
+		/usr/local/include/glm/vector_relational.hpp \
+		/usr/local/include/glm/detail/func_vector_relational.inl \
+		/usr/local/include/glm/detail/func_vector_relational_simd.inl \
+		/usr/local/include/glm/detail/_vectorize.hpp \
+		/usr/local/include/glm/detail/func_exponential_simd.inl \
+		/usr/local/include/glm/simd/exponential.h \
+		/usr/local/include/glm/common.hpp \
+		/usr/local/include/glm/detail/_fixes.hpp \
+		/usr/local/include/glm/detail/func_common.inl \
+		/usr/local/include/glm/detail/compute_common.hpp \
+		/usr/local/include/glm/detail/func_common_simd.inl \
+		/usr/local/include/glm/simd/common.h \
+		/usr/local/include/glm/detail/func_geometric_simd.inl \
+		/usr/local/include/glm/simd/geometric.h \
+		/usr/local/include/glm/detail/func_matrix_simd.inl \
+		/usr/local/include/glm/simd/matrix.h \
+		/usr/local/include/glm/detail/type_mat4x4_simd.inl \
+		/usr/local/include/glm/ext/matrix_double4x4_precision.hpp \
+		/usr/local/include/glm/ext/matrix_float4x4.hpp \
+		/usr/local/include/glm/ext/matrix_float4x4_precision.hpp \
+		/Users/georgie/NGL/include/ngl/NGLassert.h \
+		/Users/georgie/NGL/include/ngl/Vec4.h \
+		/Users/georgie/NGL/include/ngl/Vec2.h \
+		/Users/georgie/NGL/include/ngl/Vec3.h \
 		include/WindowParams.h \
 		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/QOpenGLWindow \
 		/Users/georgie/Qt/5.15.1/clang_64/lib/QtGui.framework/Headers/qopenglwindow.h \

@@ -1,6 +1,8 @@
 #ifndef NGLSCENE_H_
 #define NGLSCENE_H_
+#include <ngl/Transformation.h>>
 #include <ngl/Vec3.h>
+#include <ngl/Mat4.h>
 #include "WindowParams.h"
 // this must be included after NGL includes else we get a clash with gl libs
 #include <QOpenGLWindow>
@@ -74,6 +76,14 @@ private:
     /// @param _event the Qt Event structure
     //----------------------------------------------------------------------------------------------------------------------
     void wheelEvent( QWheelEvent *_event) override;
+
+    void loadMatrixToShader(ngl::Transformation &_tx);
+
+    //Projection matrix
+    ngl::Mat4 m_project;
+    //View matrix
+    ngl::Mat4 m_view;
+
     /// @brief windows parameters for mouse control etc.
     WinParams m_win;
     /// position for our model
