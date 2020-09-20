@@ -99,7 +99,7 @@ void NGLScene::PlaceObjects(int n, ngl::ShaderLib* shader)
         loadMatrixToShader(tx);
         ngl::VAOPrimitives::instance()->draw(ngl::teapot);
 
-        xpos+=2.0f;
+        xpos+=1.8f;
     }
 }
 
