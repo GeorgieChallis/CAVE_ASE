@@ -2,6 +2,8 @@
 #define EMITTER_H_
 
 #include "Particle.h"
+#include <memory>
+#include <ngl/AbstractVAO.h>
 #include <vector>
 
 class Emitter {
@@ -12,6 +14,7 @@ public:
     void draw() const;
 private:
     std::vector<Particle> m_particles;
+    std::unique_ptr<ngl::AbstractVAO> m_vao;
 };
 
 

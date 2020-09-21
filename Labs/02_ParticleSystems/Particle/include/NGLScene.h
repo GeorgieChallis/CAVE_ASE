@@ -2,6 +2,8 @@
 #define NGLSCENE_H_
 
 #include <memory>
+#include <ngl/Mat4.h>
+#include <ngl/Util.h>
 #include <ngl/Vec3.h>
 
 #include "WindowParams.h"
@@ -87,6 +89,9 @@ private:
     WinParams m_win;
     /// position for our model
     ngl::Vec3 m_modelPos;
+    ngl::Mat4 m_view;
+    ngl::Mat4 m_project;
+
 
     // Emitter for particle system
     std::unique_ptr<Emitter> m_emitter;
