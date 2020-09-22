@@ -2,7 +2,6 @@
 #include <QGuiApplication>
 
 #include "NGLScene.h"
-
 #include <ngl/NGLInit.h>
 #include <ngl/ShaderLib.h>
 #include <iostream>

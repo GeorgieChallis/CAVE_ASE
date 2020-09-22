@@ -1,4 +1,5 @@
 #include "Emitter.h"
+#include <ngl/NGLStream.h>
 #include <ngl/Random.h>
 #include <ngl/SimpleVAO.h>
 #include <ngl/VAOFactory.h>
@@ -18,19 +19,25 @@ Emitter::Emitter(size_t _numParticles)
 void Emitter::update()
 {
     auto rng = ngl::Random::instance();
-    for(auto& p : m_particles){
-        if (++p.life >= p.maxLife)
-        {
-            p.pos.set(0.0f, 0.0f, 0.0f);
-            p.life = 0;
-            p.dir = rng->getRandomVec3();
-            p.maxLife = static_cast<int>(rng->randomPositiveNumber(100));
+    for (auto& p : m_particles){
+        p.pos += p.dir;
+        for(auto& p : m_particles){
+            if (++p.life >= p.maxLife)
+            {
+                //p.pos.set(0.0f, 0.0f, 0.0f);
+                p.life = 0;
+                p.dir = rng->getRandomVec3();
+                p.maxLife = static_cast<int>(rng->randomPositiveNumber(100));
+            }
         }
     }
 }
 
 void Emitter::draw() const
 {
+    for (auto p : m_particles) std::cout << p.pos << "\n";
+
+
     glPointSize(10);
     m_vao->bind();
     m_vao->setData(ngl::SimpleVAO::VertexData(
