@@ -27,6 +27,7 @@ void Emitter::update()
                 //p.pos.set(0.0f, 0.0f, 0.0f);
                 p.life = 0;
                 p.dir = rng->getRandomVec3();
+                p.colour = rng->getRandomColour3();
                 p.maxLife = static_cast<int>(rng->randomPositiveNumber(100));
             }
         }
@@ -35,10 +36,7 @@ void Emitter::update()
 
 void Emitter::draw() const
 {
-    for (auto p : m_particles) std::cout << p.pos << "\n";
-
-
-    glPointSize(10);
+    glPointSize(5);
     m_vao->bind();
     m_vao->setData(ngl::SimpleVAO::VertexData(
                        m_particles.size()*sizeof (Particle), m_particles[0].pos.m_x)

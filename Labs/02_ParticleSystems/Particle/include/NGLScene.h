@@ -91,6 +91,7 @@ private:
     ngl::Vec3 m_modelPos;
     ngl::Mat4 m_view;
     ngl::Mat4 m_project;
+    ngl::Mat4 m_GlobalMouseTX;
 
 
     // Emitter for particle system
