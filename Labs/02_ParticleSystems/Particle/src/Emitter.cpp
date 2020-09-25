@@ -7,13 +7,11 @@
 Emitter::Emitter(size_t _numParticles)
 {
     m_particles.resize(_numParticles);
-    auto rng = ngl::Random::instance();
-    for(auto &p : m_particles){
-        p.pos.set(0.0f, 0.0f, 0.0f);
-        p.dir = rng->getRandomVec3();
-        p.maxLife = static_cast<int>(rng->randomPositiveNumber(100));
-    }
     m_vao = ngl::VAOFactory::createVAO(ngl::simpleVAO, GL_POINTS);
+
+    for (auto &p : m_particles){
+        ResetParticle(p);
+    }
 }
 
 void Emitter::update()
@@ -46,4 +44,12 @@ void Emitter::draw() const
     m_vao->setNumIndices(m_particles.size());
     m_vao->draw();
     m_vao->unbind();
+}
+
+void Emitter::ResetParticle(Particle &io_p){
+    auto rng = ngl::Random::instance();
+    io_p.pos.set(0.0f, 0.0f, 0.0f);
+    io_p.dir = rng->getRandomVec3();
+    io_p.maxLife = static_cast<int>(rng->randomPositiveNumber(100));
+    io_p.life = 0;
 }

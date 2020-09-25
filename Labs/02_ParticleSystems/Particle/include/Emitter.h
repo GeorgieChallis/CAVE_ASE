@@ -13,6 +13,7 @@ public:
     void update();
     void draw() const;
 private:
+    void ResetParticle(Particle &io_p);
     std::vector<Particle> m_particles;
     std::unique_ptr<ngl::AbstractVAO> m_vao;
 };
