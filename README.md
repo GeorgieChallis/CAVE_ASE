@@ -1,6 +1,6 @@
-# Animation Software Engineering Assignment
+# Animation Software Engineering - Archive
 
-## Labs
+## Previous Lab Practise
 1. Simple Geometry
 2. Particle System
 
