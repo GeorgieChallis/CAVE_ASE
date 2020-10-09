@@ -11,6 +11,8 @@ project(RGBA_build)
 # Here we set the C++ standard to use
 set(CMAKE_CXX_STANDARD 17)
 
+include_directories(include)
+
 # Now we add our target executable and the file it is built from.
 add_executable(RGBA)
 # We now add the source files we want for the project. for now we are going to just add main.cpp
