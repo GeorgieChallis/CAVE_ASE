@@ -25,7 +25,23 @@ struct RGBA
 
     void print() const
     {
-        std::cout << pixel << ' ' << r << ' ' << g << ' ' << b << '/n';  
+        std::cout << pixel << ':' << static_cast<int>(r) << ' ' << static_cast<int>(g) << ' ' << static_cast<int>(b) << '/n';  
+    }
+
+    void setRGBA(unsigned char _r, unsigned char _g, unsigned char _b, unsigned char _a)
+    {
+        r = _r;
+        g = _g;
+        b = _b;
+        a = _a;
+    }
+
+    void clamp(unsigned char _min, unsigned char _max)
+    {
+        std::clamp(r, _min, _max);
+        std::clamp(g, _min, _max);
+        std::clamp(b, _min, _max);
+        std::clamp(a, _min, _max);
     }
 
 };
